@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      function trans(val) {
+        window.open("/val/" + val);
+      }
+    </script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+  	<form action="#" method="get">
+  	　最低段位：<input type="text" name="lower"><br>
+  	　最高段位：<input type="text" name="higher"><br>
+  	　<input type="submit" value="送出">
+  	</form>
+    <div>最低段位<%= lower %> 最高段位<%= higher %> </div>
+    <pre>開局&#9;&#9;贏家&#9;盤數&#9;</pre>
+    <% result.forEach(function(ele) { %>
+	    <pre onclick="trans(<%= ele._id.val %>)"><%= ele._id.val %>&#9;<%= ele._id.winner %>&#9;<%= ele.count %></pre>
+	<% }); %>
+  </body>
+  
+</html>
